@@ -24,6 +24,72 @@ reproducibility of R code.
 
 \input{outline.tex}
 
+
+\section{The need for cleaner code}
+
+R has enabled the rapid production of scientific software without the
+imposed restrictions of software best practices for concision, clarity
+or general transparency and reproducibility. This is good in that in
+provides a much lower entry into software creation for scientists
+without formal training in computer science or software
+engineering. It also creates the potential for computer processes that
+are impossible to openly share, such as analyses with ``black-box''
+propreitary software, or tedious to document (e.g. spreadsheet
+operations for data processing). However, it also has created the
+potential to generate incorrect and/or obtuse code that also produces
+incorrect and obtuse results that are difficult to validate or
+replicate. 
+
+For the researcher, a significant part of the difficulty in creating
+transparent code is that the rapid, informal practices lead to the
+generation of lots of results, many of which are not used in the final
+product. This leads to bloated code that is more susceptible to
+``code-rot'' and is more complex and less transparent in the context
+of future use. Enabling R programmers, especially those involved in
+the sciences, to more easily examine and extract the essential code
+from their coding efforts would help reduce the complexity of a
+researcher's code. A non-trivial barrier to this is that many
+scientists have little time or incentive to take time to meticulously
+pick back through their code to extract results by hand, especially
+when their code is already complicated. Producing an automated means
+for a user to hone their code by extracting the essential elements
+could lower the barrier to creating simpler ``cleaner'' code.
+
+One challenge to this is that, in a general case, until code is
+executed, it cannot always be determined what code produces an
+output. For example, two functions with the same name but from
+different libraries could be used to create an output. Also, control
+statements (e.g. \emph{if} and \emph{else}) can change what code is
+executed. The solution to this callenge is tracking the relationships
+among functions and data such that a record of the pathways from
+inputs to a result are known. Thankfully, the field of ``data
+provenance'' has produced a rigorous, formalized way to do exactly
+this and recent efforts have begun to produce data provenance capture
+tools in a variety of contexts and languages \cite{Pasquier2017}.
+
+To address this need for creating clearer code and increase the
+reproducibility of research, we have created the \texttt{Rclean}
+package \cite{Rclean}. \texttt{Rclean} uses data provenance captured
+for a given script to extract the minimal code needed to generate a
+result. Here we use result in a very general sense that includes:
+files (e.g. figures and tables saved to disk), objects in the script
+or errors and warnings produced upon execution. Here, we detail the
+mechanics of the \texttt{Rclean} package, struture of the user and
+walk through a short example of its application. 
+
+\section{Data provenance capture and analysis for code cleaning}
+
+\section{The Rclean API}
+
+
+\section{Example: micro.R and/or messycode.R}
+
+
+\section{Conclusion }
+
+Rclean is just begninning to crack the surface of
+  provenance aware tools
+
 \section{Section title in sentence case}
 
 Introductory section which may include references in parentheses
